@@ -1,0 +1,52 @@
+% This is my preferred Beamer template
+
+\usepackage{amsmath,amsthm,amssymb,hyperref,graphicx,physics,ragged2e}
+\usepackage[
+    backend=biber,
+    style=apa,sorting=none, autocite=footnote
+]{biblatex}
+\addbibresource{refs.bib}
+\usepackage{caption} \captionsetup{labelformat=empty}
+\usepackage{subcaption}
+
+% Beamer specific stuff
+\usetheme{Warsaw}
+\useoutertheme{metropolis}
+\setbeamertemplate{frame numbering}[fraction]
+\definecolor{iiitgreen}{HTML}{3FADA8}
+\usecolortheme[named=iiitgreen]{structure}
+
+\newcommand\smallFont{\fontsize{8}{7.2}\selectfont}
+
+\title{}
+\author[short name]{Full Name\\\vspace{0.3cm}{\small Advisor: Full Name}}
+\institute[short institute]{Full Institute}
+\date{}
+
+% This is the graphic that is visible in the title slide
+\titlegraphic{
+	\includegraphics[width=2cm]{logopath}
+}
+
+
+
+\setbeamercovered{}
+% \beamertemplatetransparentcoveredhigh
+\setbeamertemplate{blocks}[rounded][shadow=false]
+
+\begin{document}
+	
+	\begin{frame}
+		\titlepage
+	\end{frame}
+
+    % This is the logo that appears in every frame
+	\logo{\includegraphics[width=1cm]{logo path}}
+
+
+    % \addtocounter{framenumber}{-1}
+    % \begin{frame}[allowframebreaks]{Bibliography}
+    %     \printbibliography
+    % \end{frame}
+
+\end{document}
