@@ -1,27 +1,59 @@
 \usepackage[utf8]{inputenc}
-\usepackage{algorithm,tabularx,geometry,array,amsmath,amsthm,amssymb,hyperref,graphicx,physics,caption,subcaption,authblk,setspace,mathtools}%, autoref}
+\usepackage{algorithm,tabularx,geometry,array,amsmath,amsthm,amssymb,hyperref,graphicx,physics,caption,subcaption,authblk,setspace,mathtools,thm-restate}%, autoref}
 \def\capit#1{\textsc{#1}}
 \usepackage[capitalize]{cleveref}
 \usepackage[noend]{algpseudocode}
+% \usepackage[linesnumbered,vlined,boxed,commentsnumbered]{algorithm2e}
 % \usepackage[moderate]{savetrees}
 
-\newgeometry{
-    top=1.00in,
-    bottom=1.00in,
-    left=1.00in,
-    right=1.00in
-}
+% \newgeometry{
+%     top=1.00in,
+%     bottom=1.00in,
+%     left=1.00in,
+%     right=1.00in
+% }
 
 
-\makeatletter
-\newcommand{\multiline}[1]{%
-  \begin{tabularx}{\dimexpr\linewidth-\ALG@thistlm}[t]{@{}X@{}}
-    #1
-  \end{tabularx}
-}
-\makeatother
+%% Table pseudcocode
 
-% Theorem Definitions
+% \begin{table}[h!]
+% \small
+% \centering
+% \caption{\small }
+% {\renewcommand{\arraystretch}{2} \footnotesize
+% \begin{tabular}{p{2cm} p{2cm} p{2.5cm} p{2cm} p{3cm}} 
+%  \hline
+%  \hline
+% \end{tabular}
+% }
+% \label{table:}
+% \end{table}
+
+
+
+%% Algorithm2e pseudocode
+
+% \begin{algorithm}[t]
+% \DontPrintSemicolon
+%     \KwIn{}
+%     \KwOut{}
+%     {}\;
+% \caption{}
+% \label{alg:}
+% \end{algorithm}
+
+%% Algoritmicx multiline
+
+% \makeatletter
+% \newcommand{\multiline}[1]{%
+%   \begin{tabularx}{\dimexpr\linewidth-\ALG@thistlm}[t]{@{}X@{}}
+%     #1
+%   \end{tabularx}
+% }
+% \makeatother
+
+%% Theorem Definitions
+\newtheorem*{theorem*}{Theorem (Informal)}
 \newtheorem{theorem}{Theorem}
 \newtheorem{corollary}[theorem]{Corollary}
 \newtheorem{lemma}[theorem]{Lemma}
@@ -31,12 +63,20 @@
 \newtheorem{claim}[theorem]{Claim}
 \newtheorem{fact}[theorem]{Fact}
 \newtheorem{assumption}[theorem]{Assumption}
+%For JMLR versions use the following in case of conflict with inbuilt styles
+\newtheorem{defn}{Definition}
+\newtheorem{lem}{Lemma}
+\newtheorem{clm}{Claim}
 
 % Expectation & variance (stolen from https://github.com/ccanonne/probabilitydistributiontoolbox/blob/master/preamble.tex)
 \newcommand{\expect}[1]{\mathbb{E}\!\left[#1\right]}
+\newcommand{\expectover}[2]{\underset{#2}{\mathbb{E}}\!\left[#1\right]}
 \newcommand{\expectCond}[2]{\mathbb{E}\!\left[\, #1 \;\middle\vert\; #2\, \right]}
-\newcommand{\shortexpect}{\mathbb{E}}
-\newcommand{\var}{\operatorname{Var}}
+\newcommand{\variance}{\operatorname{Var}}
+
+%Error and Correlation
+% \newcommand{\err}[2]{\mathrm{err}_{#2}\left(#1\right)}
+% \newcommand{\cor}[2]{\mathrm{cor}_{#2}\left(#1\right)}
 
 % Ceiling and floor
 \newcommand{\clg}[1]{\left\lceil #1 \right\rceil}
