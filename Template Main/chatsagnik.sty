@@ -1,0 +1,181 @@
+%% Include in main tex file using %%\usepackage{chatsagnik}
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{chatsagnik}[2023/01/01 Chatsagnik Style Files]
+
+
+\usepackage{fullpage}
+\usepackage{dsfont} 
+\usepackage{xcolor}
+\usepackage{authblk}
+%%%--------------Colors--------------%%
+\PassOptionsToPackage{dvipsnames}{xcolor}
+\definecolor{red}{HTML}{E51400}  %red
+\definecolor{blue}{HTML}{0050EF} %cobalt
+\definecolor{green}{HTML}{008A00} %emerald
+\definecolor{purple}{HTML}{AA00FF} %violet
+\definecolor{dark-red}{rgb}{0.4, 0.15, 0.15}
+\definecolor{dark-blue}{rgb}{0.15, 0.15, 0.4}
+\definecolor{medium-red}{rgb}{0.5, 0, 0}
+\definecolor{medium-blue}{rgb}{0, 0, 0.5}
+\definecolor{light-red}{rgb}{0.7, 0, 0}
+\definecolor{light-blue}{rgb}{0, 0, 0.7}
+\definecolor{bv}{RGB}{50, 74, 178}
+\definecolor{rb}{RGB}{230, 43, 30}
+
+%%-----------------------%%
+\usepackage{array}
+\usepackage{setspace}
+\usepackage[
+% backref,
+    colorlinks,
+    linkcolor={purple},
+    citecolor={blue},
+    urlcolor={red},
+    bookmarks=true,
+    linktoc=page]{hyperref}
+
+\usepackage{fancybox,framed}
+\usepackage{nicefrac}
+\usepackage{booktabs}
+\usepackage{nicematrix}
+\usepackage{multirow,multicol}
+\usepackage{footnotebackref}
+% \usepackage[subtle]{savetrees} %% Uses the geometry package
+
+\usepackage[medium,compact]{titlesec}
+\usepackage{enumitem}
+\setitemize{noitemsep,topsep=3pt,parsep=2pt,partopsep=2pt} 
+\setenumerate{itemsep=1pt,topsep=2pt,parsep=2pt,partopsep=2pt}
+\setdescription{itemsep=1pt}
+
+\usepackage{physics}
+\usepackage{amsmath,amssymb,amsfonts,mathtools}
+\usepackage{latexsym,bbm,xspace,graphicx,float}
+\usepackage{amsthm}
+\usepackage{thm-restate}
+\usepackage{thmtools}
+
+\usepackage[ruled,noend]{algorithm2e}
+\newcommand\mycommfont[1]{\footnotesize\ttfamily\textcolor{bv}{#1}}
+\SetCommentSty{mycommfont}
+
+\usepackage[capitalise]{cleveref}
+
+\usepackage[acronym]{glossaries-extra}
+\usepackage{xspace}
+\setabbreviationstyle[acronym]{long-short}
+% Usage: \gls{gcd}. Explicit full form: \glsxtrfull{gcd}
+
+%------------tikzpicture------------%%
+\usepackage{tikz-network} %% See https://arxiv.org/pdf/1709.06005.pdf for manual
+\usepackage{tikz}
+\usepackage[outdir=./]{epstopdf}
+
+\usepackage{wrapfig}
+\usepackage{lipsum}  
+
+%%%%%%%%%%%%%%%%%%%%
+%
+%  Math, Symbols, Theorems
+%
+%%%%%%%%%%%%%%%%%%%%
+
+%%------------amsthm declarations------------%%
+\newtheorem*{theorem*}{Theorem (Informal)}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lem}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{clm}[theorem]{Claim}
+
+\theoremstyle{definition}
+\newtheorem{defn}{Definition}
+
+\theoremstyle{remark}
+\newtheorem{observation}{Observation}
+\theoremstyle{remark}
+\newtheorem{remark}{Remark}
+\newtheorem{fact}{Fact}
+\newtheorem{assumption}{Assumption}
+
+\renewcommand{\qedsymbol}{\ensuremath{\blacksquare}}
+\newenvironment{pfof}[1]{\vspace{1ex}\noindent{\em {Proof of \textsc{#1}~}}\hspace{0.5em}}
+	{\hfill\qed\vspace{1ex}}
+\newenvironment{psketch}{\vspace{1ex}\noindent{\textit{Proof Sketch}.~}\hspace{0.5em}}
+	{\hfill\qed\vspace{1ex}}
+%%%%%%%%%%%%%%%%%%%%
+%
+%  Bibliography
+%
+%%%%%%%%%%%%%%%%%%%%
+% \usepackage{natbib}
+% \bibliographystyle{abbrvnat}
+\usepackage[style=alphabetic,backend=bibtex,maxbibnames=20,maxcitenames=6,giveninits=true,doi=true,url=true,backref=true]{biblatex}
+\addbibresource{refsexample.bib}
+
+%%%%%%%%%%%%%%%%%%%%
+%
+%  Paper Specific Macros
+%
+%%%%%%%%%%%%%%%%%%%%
+\newcommand{\err}[2]{\mathrm{err}_{#2}\left(#1\right)}
+\newcommand{\cor}[2]{\mathrm{cor}_{#2}\left(#1\right)}
+\def\qaex{\ensuremath{\mathrm{QAEX}}}
+\def\qex{\ensuremath{\mathrm{QEX}}}
+\newacronym{gcd}{GCD}{Greatest Common Divisor}
+\newacronym{pac}{PAC}{Probably Approximately Correct}
+\newcommand{\pac}{{\gls*{pac}} model~}
+
+%%------------Expectation & variance------------%%
+\newcommand{\expect}[1]{\mathbb{E}\!\left[#1\right]}
+\newcommand{\expectover}[2]{\underset{#2}{\mathbb{E}}\!\left[#1\right]}
+\newcommand{\expectCond}[2]{\mathbb{E}\!\left[\, #1 \;\middle\vert\; #2\, \right]}
+\newcommand{\variance}{\operatorname{Var}}
+
+\newcommand{\from}{:}
+\newcommand{\poly}{\mathrm{poly}}
+\newcommand{\negl}{\mathrm{negl}}
+\newcommand{\polylog}{\mathrm{polylog}}
+\newcommand{\eps}{\varepsilon}
+%\renewcommand{\gets}{\sim}
+\newcommand{\ind}{\mathbb{I}}
+\DeclareMathOperator*{\argmin}{arg\,min}
+\DeclareMathOperator*{\argmax}{arg\,max}
+
+\newcommand{\wh}[1]{\ensuremath{\widehat{#1}}}
+\newcommand{\wt}[1]{\ensuremath{\widetilde{#1}}}
+\newcommand{\wb}[1]{\ensuremath{\overline{#1}}}
+
+%------------Ceiling and floor------------%%
+\newcommand{\clg}[1]{\left\lceil #1 \right\rceil}
+\newcommand{\flr}[1]{\left\lfloor #1 \right\rfloor}
+
+%%------------Complexity------------%%
+\newcommand{\littleO}[1]{{o\left( #1 \right)}}
+\newcommand{\bigO}[1]{{O\left( #1 \right)}}
+\newcommand{\bigOSmall}[1]{{O\big( #1 \big)}}
+\newcommand{\bigTheta}[1]{{\Theta\left( #1 \right)}}
+\newcommand{\bigOmega}[1]{{\Omega\left( #1 \right)}}
+\newcommand{\bigOmegaSmall}[1]{{\Omega\big( #1 \big)}}
+\newcommand{\tildeO}[1]{\tilde{O}\left( #1 \right)}
+\newcommand{\tildeTheta}[1]{\operatorname{\tilde{\Theta}}\left( #1 \right)}
+\newcommand{\tildeOmega}[1]{\operatorname{\tilde{\Omega}}\left( #1 \right)}
+\providecommand{\poly}{\operatorname*{poly}}
+
+%%------------Polynomial Hierarchy------------%%
+\def\capit#1{\textsc{#1}}
+\def\l{\ensuremath{{\capit{\textbf{L}}}}}
+\def\parL{\ensuremath{{\capit{$\oplus$\textbf{L}}}}}
+\def\p{\ensuremath{{\capit{\textbf{P}}}}}
+\def\np{\ensuremath{\capit{\textbf{NP}}}}
+\def\conp{\ensuremath{\textbf{\capit{coNP}}}}
+\def\npc{\ensuremath{\capit{\textbf{NP-}}complete}}
+\def\nph{\ensuremath{\capit{\text{NP-}}hard}}
+\def\conpc{\ensuremath{\textbf{\capit{coNP-}}complete}}
+\def\conph{\ensuremath{\textbf{\capit{coNP-}}hard}}
+\def\polyhi{\ensuremath{{\capit{\textbf{PH}}}}}
+\def\expcom{\ensuremath{\capit{\textbf{EXP}}}}
+\def\nexp{\ensuremath{\capit{\textbf{NEXP}}}}
+\newcommand{\dtime}[1]{\capit{DTIME}\ensuremath{\left(#1\right)}}
+\newcommand{\ntime}[1]{\capit{NTIME}\ensuremath{\left(#1\right)}}
+\newcommand{\exptime}[1]{\capit{EXPTIME}\ensuremath{\left(#1\right)}}
